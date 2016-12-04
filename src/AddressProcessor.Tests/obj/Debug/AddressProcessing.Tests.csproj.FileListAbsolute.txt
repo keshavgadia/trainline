@@ -1,0 +1,10 @@
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\test_data\contacts.csv
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\AddressProcessing.Tests.dll
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\AddressProcessing.Tests.pdb
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\AddressProcessing.dll
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\nunit.framework.dll
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\AddressProcessing.pdb
+C:\Data\csharp\src\AddressProcessor.Tests\bin\Debug\nunit.framework.xml
+C:\Data\csharp\src\AddressProcessor.Tests\obj\Debug\AddressProcessing.Tests.csprojResolveAssemblyReference.cache
+C:\Data\csharp\src\AddressProcessor.Tests\obj\Debug\AddressProcessing.Tests.dll
+C:\Data\csharp\src\AddressProcessor.Tests\obj\Debug\AddressProcessing.Tests.pdb
