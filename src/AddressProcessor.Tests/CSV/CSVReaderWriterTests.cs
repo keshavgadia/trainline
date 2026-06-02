@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,14 +16,14 @@ namespace Csv.Tests
         public void Open_For_Read_When_File_DoesNot_Exists_Throws_FileNotFoundException()
         {
             var csvReadWriter = new CSVReaderWriter();
-            Assert.Throws<FileNotFoundException>(() => csvReadWriter.Open("test.file", CSVReaderWriter.Mode.Read));
+            Assert.That(() => csvReadWriter.Open("test.file", CSVReaderWriter.Mode.Read), Throws.TypeOf<FileNotFoundException>());
         }
 
         [Test]
         public void Open_For_Read_When_File_Exists_DoesNotThrowException()
         {
             var csvReadWriter = new CSVReaderWriter();
-            Assert.DoesNotThrow(() => csvReadWriter.Open(@"test_data\contacts.csv", CSVReaderWriter.Mode.Read));
+            Assert.That(() => csvReadWriter.Open(@"test_data\contacts.csv", CSVReaderWriter.Mode.Read), Throws.Nothing);
         }
         #endregion
 
@@ -35,7 +35,7 @@ namespace Csv.Tests
             string column1 = null;
             string column2 = null;
             var csvReadWriter = new CSVReaderWriter();
-            Assert.Throws<Exception>(()=> csvReadWriter.Read(out column1, out column2));
+            Assert.That(()=> csvReadWriter.Read(out column1, out column2), Throws.TypeOf<Exception>());
 
         }
 
@@ -47,8 +47,8 @@ namespace Csv.Tests
             var csvReadWriter = new CSVReaderWriter();
             csvReadWriter.Open(@"test_data\contacts.csv", CSVReaderWriter.Mode.Read);
             csvReadWriter.Read(out column1, out column2);
-            Assert.NotNull(column1);
-            Assert.NotNull(column2);
+            Assert.That(column1, Is.Not.Null);
+            Assert.That(column2, Is.Not.Null);
 
 
         }
@@ -72,7 +72,7 @@ namespace Csv.Tests
 
             csvReadWriter.Open(@"test_data\test.txt", CSVReaderWriter.Mode.Read);
                       
-            Assert.Throws<IndexOutOfRangeException>(()=> csvReadWriter.Read(out column1, out column2));
+            Assert.That(()=> csvReadWriter.Read(out column1, out column2), Throws.TypeOf<IndexOutOfRangeException>());
 
 
         }
@@ -86,7 +86,7 @@ namespace Csv.Tests
         public void Open_For_Write_When_WriterStream_Not_Initialized_Throws_Exception()
         {
             var csvReadWriter = new CSVReaderWriter();
-            Assert.Throws<Exception>(() => csvReadWriter.Write("test"));
+            Assert.That(() => csvReadWriter.Write("test"), Throws.TypeOf<Exception>());
         }
 
         [Test]
@@ -102,8 +102,8 @@ namespace Csv.Tests
             csvReadWriter.Open(@"test_data\test.txt", CSVReaderWriter.Mode.Read);
             csvReadWriter.Read(out column1, out column2);
             csvReadWriter.Close();
-            Assert.AreEqual("test line 1 Column 1", column1);
-            Assert.AreEqual("test line 1 Column 2", column2);
+            Assert.That(column1, Is.EqualTo("test line 1 Column 1"));
+            Assert.That(column2, Is.EqualTo("test line 1 Column 2"));
 
         }
 
@@ -122,4 +122,5 @@ namespace Csv.Tests
 
     }
 }
+
 
